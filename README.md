@@ -1,40 +1,44 @@
 # Lunar's Website 🌙
 
-Welcome to my personal website — a space where I showcase my projects, share my interests in programming, and explore new technologies.
+Welcome To My Personal Website - A Page To Showcase My Interests & Other Things
 
----
+------------------------------------
 
 ## About
 
-I’m Lunar, a backend developer, client scripter, and exploit researcher. This website is built to highlight my work and serve as a personal hub for my projects.
+I'm Lunar, a backend developer, client scripter, and exploit researcher based in the UK. I enjoy diving 
+into challenging problems, whether it involves building reliable APIs, writing efficient client-side 
+scripts, or uncovering subtle vulnerabilities. I get satisfaction from turning complex challenges into 
+clean, working solutions and constantly learning new technologies. I also enjoy collaborating with others, 
+sharing knowledge, and creating tools that make a real difference.
 
----
+------------------------------------
 
 ## Features
 
-- Clean and minimalist design  
-- Dark/Light mode support  
-- Interactive elements and smooth animations  
-- Embedded music player  
+- Clean & Minimalistic Design
+- Dark/Light mode support
+- Interactive Elements & Smooth Animations
+- Embedded Music Player
 
----
+------------------------------------
 
 ## Technologies
 
-- HTML5 & CSS3  
-- JavaScript  
-- [Optional frameworks/libraries if any]
+- HTML5 & CSS3
+- JavaScript
 
----
+------------------------------------
 
 ## Links
 
-- Website: [https://lunar-xyz.github.io](https://lunar-xyz.github.io)  
-- GitHub: [https://github.com/lunar-xyz](https://github.com/lunar-xyz)  
-- Contact: [your email or social links]
+- Website: [https://lunar-xyz.github.io](https://lunar-xyz.github.io)
+- GitHub: [https://github.com/lunar-xyz](https://github.com/lunar-xyz)
+- Discord: [@foreverdigitallycontemporary]
 
----
+------------------------------------
 
 ## License
 
-This project is licensed under the MIT License.  
+© 2025 Lunar. All Rights Reserved.
+No part of this website may be reproduced, distributed, or transmitted in any form or by any means without the prior written permission of the author.
