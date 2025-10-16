@@ -40,6 +40,15 @@ No part of this website may be reproduced, distributed, or transmitted in any fo
         --Offline: #80848e;
     }
 
+    [data-theme="light"] body 
+    {
+        background-color: var(--Light);
+        color: var(--DarkText);
+        background-image:
+            radial-gradient(circle at 10% 20%, rgba(0, 0, 0, 0.075) 0%, transparent 20%),
+            radial-gradient(circle at 90% 80%, rgba(0, 0, 0, 0.075) 0%, transparent 20%);
+    }
+
     [data-theme="light"] 
     {
         --Primary: #111111;
@@ -111,6 +120,11 @@ No part of this website may be reproduced, distributed, or transmitted in any fo
         border-top: 4px solid var(--Primary);
     }
 
+    [data-theme="light"] .StatusIndicator 
+    {
+        border: 3px solid #000000;
+    }
+
     [data-theme="light"] .StatusIndicator.Online 
     {
         box-shadow: 0 0 12px #23a55a;
@@ -136,6 +150,27 @@ No part of this website may be reproduced, distributed, or transmitted in any fo
         background: #3a3a3a;
     }
 
+    [data-theme="light"] .ProjectItem 
+    {
+        background: rgba(240, 240, 240, 0.9);
+        border: 1px solid rgba(0, 0, 0, 0.2);
+    }
+
+    [data-theme="light"] .ProjectItem:hover 
+    {
+        background: rgb(190, 190, 190, 0.3);
+    }
+
+    [data-theme="light"] .ProjectHeader:hover 
+    {
+        background: rgba(190, 190, 190, 0.329);
+    }
+
+    [data-theme="light"] .ProjectDescription::before 
+    {
+        background: rgba(0, 0, 0, 0.2);
+    }
+
     * 
     {
         margin: 0;
@@ -152,8 +187,8 @@ No part of this website may be reproduced, distributed, or transmitted in any fo
         min-height: 100vh;
         padding: 2rem 1rem;
         background-image: 
-            radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 20%),
-            radial-gradient(circle at 90% 80%, rgba(200, 200, 200, 0.05) 0%, transparent 20%);
+            radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.075) 0%, transparent 20%),
+            radial-gradient(circle at 90% 80%, rgba(255, 255, 255, 0.075) 0%, transparent 20%);
         transition: var(--Transition);
     }
 
@@ -418,7 +453,7 @@ No part of this website may be reproduced, distributed, or transmitted in any fo
         width: 28.75px;
         height: 28.75px;
         border-radius: 50%;
-        border: 3px solid var(--Dark);
+        border: 3px solid #ffffff;
         z-index: 2;
         box-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
         transition: var(--Transition);
@@ -536,7 +571,8 @@ No part of this website may be reproduced, distributed, or transmitted in any fo
         color: var(--TextLight);
     }
 
-    .InterestsList, .ContactsList 
+    .InterestsList,
+    .ContactsList 
     {
         list-style: none;
         display: grid;
@@ -544,7 +580,8 @@ No part of this website may be reproduced, distributed, or transmitted in any fo
         gap: 0.8rem;
     }
 
-    .InterestItem, .ContactItem 
+    .InterestItem,
+    .ContactItem 
     {
         background: rgba(0, 0, 0, 0.3);
         padding: 0.7rem 1rem;
@@ -554,7 +591,8 @@ No part of this website may be reproduced, distributed, or transmitted in any fo
         color: var(--Text);
     }
 
-    .InterestItem:hover, .ContactItem:hover 
+    .InterestItem:hover,
+    .ContactItem:hover 
     {
         background: rgba(255, 255, 255, 0.1);
         transform: translateY(-2px);
@@ -572,12 +610,92 @@ No part of this website may be reproduced, distributed, or transmitted in any fo
         color: var(--PrimaryLight);
     }
 
-    .NoSelect 
+    .ProjectsList 
     {
-        user-select: none;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
+        list-style: none;
+    }
+
+    .ProjectItem 
+    {
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 8px;
+        margin-bottom: 0.8rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        overflow: hidden;
+        transition: var(--Transition);
+        position: relative;
+    }
+
+    .ProjectItem:hover 
+    {
+        background: rgba(34, 34, 34, 0.3);
+    }
+
+    .ProjectHeader 
+    {
+        padding: 1rem;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: var(--Transition);
+    }
+
+    .ProjectHeader:hover 
+    {
+        background: rgba(34, 34, 34, 0.356);
+    }
+
+    .ProjectTitle 
+    {
+        font-weight: 600;
+        color: var(--PrimaryLight);
+    }
+
+    .ProjectContent 
+    {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        position: relative;
+    }
+
+    .ProjectDescription 
+    {
+        margin-top: 7px;
+        padding: 0 1rem 1rem 1rem;
+        color: var(--Text);
+        line-height: 1.6;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: opacity 0.2s ease, transform 0.2s ease;
+        position: relative;
+    }
+
+    .ProjectDescription::before 
+    {
+        content: "";
+        position: absolute;
+        top: -0.425rem;
+        left: -2rem;
+        right: -2rem;
+        height: 1px;
+        background: rgba(255, 255, 255, 0.2);
+        transition: opacity 0.2s ease;
+        opacity: 0;
+    }
+
+    .ProjectItem.Active,
+    .ProjectDescription 
+    {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .ProjectItem.Active,
+    .ProjectDescription::before 
+    {
+        opacity: 1;
     }
 
     #CurrentTime,
@@ -587,6 +705,19 @@ No part of this website may be reproduced, distributed, or transmitted in any fo
         -webkit-user-select: none;
         -moz-user-select: none;
         -ms-user-select: none;
+    }
+
+    .NoSelect 
+    {
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+    }
+
+    * 
+    {
+        scrollbar-width: none;
     }
 
     footer {
@@ -675,6 +806,26 @@ No part of this website may be reproduced, distributed, or transmitted in any fo
         </section>
 
         <section class="Section">
+            <h2 class="SectionTitle NoSelect"><i class="fas fa-code"></i> Projects</h2>
+            <ul class="ProjectsList">
+                <li class="ProjectItem">
+                    <div class="ProjectHeader">
+                        <span class="ProjectTitle">Whitelist System</span>
+                        <i class="fas fa-chevron-down ProjectArrow"></i>
+                    </div>
+                    <div class="ProjectContent">
+                        <p class="ProjectDescription">
+                            A secure solution to Roblox Whitelisting for Scripts, it involves encryption, anti-hooking, globalless rng
+                            and many other protections and security measures to ensure security, the Client is written in a light-weight
+                            language derived from Lua called LuaU and the Server used to validate all information like Hardware IDs and Keys
+                            is written in Express from JavaScript.
+                        </p>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <section class="Section">
             <h2 class="SectionTitle NoSelect"><i class="fas fa-user"></i> About Me</h2>
             <p class="AboutText">
             I'm a backend developer, client scripter, and exploit researcher based in the UK. I enjoy diving 
@@ -731,6 +882,41 @@ No part of this website may be reproduced, distributed, or transmitted in any fo
             document.documentElement.setAttribute("data-theme", NewTheme)
             ThemeIcon.className = NewTheme === "light" ? "fas fa-sun" : "fas fa-moon"
             localStorage.setItem("theme", NewTheme)
+        })
+    }
+
+    function InitializeProjects() {
+        const ProjectItems = document.querySelectorAll(".ProjectItem")
+
+        ProjectItems.forEach(Item => {
+            const Header = Item.querySelector(".ProjectHeader")
+            const Content = Item.querySelector(".ProjectContent")
+            const Description = Item.querySelector(".ProjectDescription")
+            const Arrow = Item.querySelector(".ProjectArrow")
+
+            Header.addEventListener("click", () => {
+                const IsActive = Item.classList.contains("Active")
+                Arrow.style.transition = "none"
+
+                if (!IsActive) {
+                    Item.classList.add("Active")
+                    Arrow.style.transform = "rotate(180deg)"
+                    const DescriptionHeight = Description.scrollHeight
+                    Content.style.maxHeight = DescriptionHeight + "px"
+                    setTimeout(() => {
+                        Description.style.opacity = "1"
+                        Description.style.transform = "translateY(0)"
+                    }, 50)
+                } else {
+                    Item.classList.remove("Active")
+                    Arrow.style.transform = "rotate(0deg)"
+                    Content.style.maxHeight = "0"
+                    Description.style.opacity = "0"
+                    Description.style.transform = "translateY(-10px)"
+                }
+
+                void Arrow.offsetWidth
+            })
         })
     }
 
@@ -991,19 +1177,19 @@ No part of this website may be reproduced, distributed, or transmitted in any fo
 
     async function LoadDiscordData() {
         try {
-            const Response = await fetch("https://discord-lookup-api-xkpe.vercel.app/v1/user/1422591147682959391")
+            const Response = await fetch("https://discord.com/api/guilds/1428047186368663624/widget.json")
             const Data = await Response.json()
-            
-            if (document.querySelector(".Avatar") && Data.avatar?.link) {
-                document.querySelector(".Avatar").src = Data.avatar.link
-            }
-            if (document.querySelector(".ContactItem b") && Data.username) {
-                document.querySelector(".ContactItem b").textContent = Data.username
-            }
-            if (Data.online_status) {
-                UpdateStatusIndicator(Data.online_status)
+            const Member = Data.members[0]
+
+            if (Member) {
+                const AvatarImg = document.querySelector(".Avatar")
+                if (AvatarImg && Member.avatar_url) AvatarImg.src = Member.avatar_url
+                if (Member.status) UpdateStatusIndicator(Member.status)
+            } else {
+                UpdateStatusIndicator("offline")
             }
         } catch {
+            UpdateStatusIndicator("offline")
         }
     }
 
@@ -1034,6 +1220,7 @@ No part of this website may be reproduced, distributed, or transmitted in any fo
 
     document.addEventListener("DOMContentLoaded", () => {
         InitializeTheme()
+        InitializeProjects()
         InitializeMusicPlayer()
         LoadDiscordData()
 
